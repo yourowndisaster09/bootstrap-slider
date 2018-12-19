@@ -1554,6 +1554,7 @@ const windowIsDefined = (typeof window === "object");
 				}
 			},
 			_mousedown: function(ev) {
+				console.log('mousedown');
 				if(!this._state.enabled) {
 					return false;
 				}
@@ -1575,6 +1576,10 @@ const windowIsDefined = (typeof window === "object");
 				} else {
 					this._state.dragged = 0;
 				}
+
+				console.log(`mousedown, dragged=${this._state.dragged},\
+					per=${percentage},\
+					per0=${this._state.percentage[0]}, per1=${this._state.percentage[1]}`);
 
 				this._state.percentage[this._state.dragged] = percentage;
 
@@ -1618,6 +1623,7 @@ const windowIsDefined = (typeof window === "object");
 				return true;
 			},
 			_touchstart: function(ev) {
+				console.log('touchstart, ev.changedTouches=' + ev.changedTouches);
 				this._mousedown(ev);
 			},
 			_triggerFocusOnHandle: function(handleIdx) {
@@ -1727,6 +1733,7 @@ const windowIsDefined = (typeof window === "object");
 				ev.returnValue=false;
 			},
 			_mousemove: function(ev) {
+				console.log('mousemove, dragged=' + this._state.dragged);
 				if(!this._state.enabled) {
 					return false;
 				}
@@ -1741,6 +1748,7 @@ const windowIsDefined = (typeof window === "object");
 				return false;
 			},
 			_touchmove: function(ev) {
+				console.log('touchmove, ev.changedTouches=' + ev.changedTouches);
 				if (ev.changedTouches === undefined) {
 					return;
 				}
@@ -1775,6 +1783,7 @@ const windowIsDefined = (typeof window === "object");
 				}
 			},
 			_mouseup: function(ev) {
+				console.log('mouseup');
 				if(!this._state.enabled) {
 					return false;
 				}
