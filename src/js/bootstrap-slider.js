@@ -1599,9 +1599,9 @@ const windowIsDefined = (typeof window === "object");
 					this._state.dragged = 0;
 				}
 
-				console.log(`mousedown, dragged=${this._state.dragged},\
-					per=${percentage},\
-					per0=${this._state.percentage[0]}, per1=${this._state.percentage[1]}`);
+				console.log(`mousedown, dragged=${this._state.dragged}` +
+					`, per=${percentage}` +
+					`, per0=${this._state.percentage[0]}, per1=${this._state.percentage[1]}`);
 
 				this._state.percentage[this._state.dragged] = percentage;
 
@@ -1755,7 +1755,11 @@ const windowIsDefined = (typeof window === "object");
 				ev.returnValue=false;
 			},
 			_mousemove: function(ev) {
-				console.log('mousemove, dragged=' + this._state.dragged);
+				console.log(`mousemove, dragged=${this._state.dragged}` +
+					`, currentTarget=${ev.currentTarget}` +
+					`, target=${ev.target}` +
+					`, type=${ev.type}` +
+					`, eventPhase=${ev.eventPhase}`);
 				if(!this._state.enabled) {
 					return false;
 				}
@@ -1805,7 +1809,7 @@ const windowIsDefined = (typeof window === "object");
 				}
 			},
 			_mouseup: function(ev) {
-				console.log('mouseup');
+				console.log(`mouseup, target=${ev.target}, type=${ev.type}`);
 				if(!this._state.enabled) {
 					return false;
 				}
