@@ -1554,7 +1554,6 @@ const windowIsDefined = (typeof window === "object");
 				}
 			},
 			_mousedown: function(ev) {
-				console.log('mousedown');
 				if(!this._state.enabled) {
 					return false;
 				}
