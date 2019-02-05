@@ -61,8 +61,6 @@ function calcTouchEventCoords(element) {
 }
 
 describe("Touch Capable Tests", function() {
-  var touch;
-  var coords;
   var touchStart;
   var touchMove;
   var touchEnd;
